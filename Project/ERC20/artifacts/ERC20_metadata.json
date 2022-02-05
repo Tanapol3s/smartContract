@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.11+commit.d7f03943"
+		"version": "0.8.7+commit.e28d00a7"
 	},
 	"language": "Solidity",
 	"output": {
@@ -54,6 +54,30 @@
 				],
 				"name": "Transfer",
 				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					}
+				],
+				"name": "allowance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "remaining",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			},
 			{
 				"inputs": [
@@ -173,6 +197,35 @@
 				],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transferFrom",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "success",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -203,11 +256,11 @@
 	},
 	"sources": {
 		"Project/ERC20/ERC20.sol": {
-			"keccak256": "0x3e59a1ca0bb5c42580b309bd1f561a5d5866f2660401a728635d4b197f3ba050",
+			"keccak256": "0xe46d93de4fb65e0f7a626d41553085af27b3d9974802396137de087ab660a12a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9c64f04803cc3751aa28f5e804ef98ceec08b6e5845146b50ee92ec02c963ac1",
-				"dweb:/ipfs/QmXoRfADVdp2boPkUzy5XkUMnp2ovJeQoixBbpk3ZQXRc8"
+				"bzz-raw://364e1783a17c3be482b95cfad0e366e3dd70f7f5175920f4a9d922fc77f5e7e9",
+				"dweb:/ipfs/Qma86yduEc1nRAVUArtWi4cYpz7fMZFgMKDH3qkMYiHSZJ"
 			]
 		}
 	},

@@ -14,8 +14,8 @@ interface IERC20 {
     function balanceOf(address owner) external view returns (uint256 balance);
     function transfer(address to, uint amount) external returns (bool success);
     function approve(address spender, uint amount) external returns (bool success);
-    // function transferFrom(address _from, address _to, uint256 _value) external returns (bool success);
-    // function allowance(address _owner, address _spender) external view returns (uint256 remaining);
+    function allowance(address owner, address spender) external view returns (uint256 remaining);
+    function transferFrom(address from, address to, uint amount) external returns (bool success);
 }
 
 abstract contract ERC20 is IERC20 {
@@ -23,6 +23,8 @@ abstract contract ERC20 is IERC20 {
     string _symbol;
     uint _totalSupply;
     mapping(address => uint) _balances;
+    //owner => (spender => amount)
+    mapping(address => mapping(address=>uint)) _allowance;
 
     constructor(string memory name_, string memory symbol_) {
         _name = name_;
@@ -59,6 +61,20 @@ abstract contract ERC20 is IERC20 {
         return true;
     }
 
+    function allowance(address owner, address spender) public override view returns (uint256 remaining) {
+        return _allowance[owner][spender];
+    }
+
+    function transferFrom(address from, address to, uint amount) public override returns (bool success) {
+        if (from != msg.sender) {
+            uint allowanceAmount = _allowance[from][msg.sender];
+            require(allowanceAmount >= amount, "transfer amount exceed");
+            _approve(from, msg.sender, allowanceAmount - amount);
+        }
+        _transfer(from, to, amount);
+        return true;
+    }
+
     // private function 
     function _transfer(address from, address to, uint amount) internal {
         require(from != address(0), "transfer from zero address");
@@ -70,6 +86,33 @@ abstract contract ERC20 is IERC20 {
     }
 
     function _approve(address owner, address spender, uint amount) internal {
+        require(owner != address(0), "approve from zero address");
+        require(spender != address(0), "approve spender from zero address");
+
+        _allowance[owner][spender] = amount;
+        emit Approval(owner, spender, amount);
+    }
+
+    function _mint(address to, uint amount) internal {
+        require(to != address(0), "mint to zero address");
+        _totalSupply += amount;
+        _balances[to] += amount;
+
+        emit Transfer(address(0), to, amount);
+    }
+
+    function _burn(address from,uint amount) internal {
+        require(from != address(0), "burn from zero address");
+        require(_balances[from] >= amount, "limit amount exceed");
+        _totalSupply -= amount;
+        _balances[from] -= amount;
+
+        emit Transfer(from, address(0), amount);
+    }
+}
+
+contract TDC is ERC20 {
+    constructor() ERC20("TongDeeCoin", "TDC") {
 
     }
 }
