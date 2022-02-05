@@ -1,0 +1,448 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "_myCoin",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "_matchNum",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_claimer",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "_teamName",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "matchStatus",
+						"type": "string"
+					}
+				],
+				"name": "Claim",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "_matchNum",
+						"type": "uint256"
+					}
+				],
+				"name": "CloseMatch",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "_matchNum",
+						"type": "uint256"
+					}
+				],
+				"name": "FinishMatch",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "_matchNum",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "_teamName",
+						"type": "string"
+					}
+				],
+				"name": "Gambling",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "_teamAName",
+						"type": "string"
+					},
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "_teamBName",
+						"type": "string"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "_matchNum",
+						"type": "uint256"
+					}
+				],
+				"name": "MatchCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "_matchNum",
+						"type": "uint256"
+					}
+				],
+				"name": "Postpone",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_matchNum",
+						"type": "uint256"
+					}
+				],
+				"name": "claimTeamA",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_matchNum",
+						"type": "uint256"
+					}
+				],
+				"name": "claimTeamB",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_matchNum",
+						"type": "uint256"
+					}
+				],
+				"name": "closeMatch",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_teamAName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_teamBName",
+						"type": "string"
+					}
+				],
+				"name": "createMatch",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_matchNum",
+						"type": "uint256"
+					}
+				],
+				"name": "estimateRewardTeamA",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_matchNum",
+						"type": "uint256"
+					}
+				],
+				"name": "estimateRewardTeamB",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_matchNum",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_teamAScore",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_teamBScore",
+						"type": "uint8"
+					}
+				],
+				"name": "finishMatch",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_matchNum",
+						"type": "uint256"
+					}
+				],
+				"name": "gamblingTeamA",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_matchNum",
+						"type": "uint256"
+					}
+				],
+				"name": "gamblingTeamB",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getOpenMatch",
+				"outputs": [
+					{
+						"internalType": "string[]",
+						"name": "teamAName",
+						"type": "string[]"
+					},
+					{
+						"internalType": "string[]",
+						"name": "teamBName",
+						"type": "string[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "matchNum",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_matchNum",
+						"type": "uint256"
+					}
+				],
+				"name": "getTotalTeamAGambling",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_matchNum",
+						"type": "uint256"
+					}
+				],
+				"name": "getTotalTeamBGambling",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_matchNum",
+						"type": "uint256"
+					}
+				],
+				"name": "getYourBalanceTeamA",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_matchNum",
+						"type": "uint256"
+					}
+				],
+				"name": "getYourBalanceTeamB",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_matchNum",
+						"type": "uint256"
+					}
+				],
+				"name": "postponeMatch",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "transferFeeToOwner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Project/BigMatch.sol": "BigMatch"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x61437cb513a887a1bbad006e7b1c8b414478427d33de47c5600af3c748f108da",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2c3d0973630ed74f2b5ce3944677a885dc70ec32fc83b35f55045a10224da32b",
+				"dweb:/ipfs/QmbefZ5RoEZKNHXCALfh683PnaNYzKPcKMFjyY1DVAgq8A"
+			]
+		},
+		"Project/BigMatch.sol": {
+			"keccak256": "0xb960d288aabf452f155f113ba2759e652b795017d1971da461a1a32c34e78018",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://53c252a6122cf4a56b88890a0657a2d35f7bb5424611e621b887cac524449989",
+				"dweb:/ipfs/QmbChB11NZ5DLToR4JWvX76GyTNbDsjZwgrGKRF2CyHMWT"
+			]
+		}
+	},
+	"version": 1
+}

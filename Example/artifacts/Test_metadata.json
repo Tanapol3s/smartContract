@@ -1,0 +1,78 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "senderAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "testCalculation",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testConcatString",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Example/Test.sol": "Test"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Example/Test.sol": {
+			"keccak256": "0xada5544723760772af216381456dff1e07528974c32a23e91a535197f399c038",
+			"license": "Unlicense",
+			"urls": [
+				"bzz-raw://173d6a095602b48e30594e1ed0f326d78eeeaf60c919372896bcd354a51c5708",
+				"dweb:/ipfs/QmVKoeSx3EcvNVnrgV2h53UBqokUe8BAVC7coCgqm46Uq8"
+			]
+		}
+	},
+	"version": 1
+}
