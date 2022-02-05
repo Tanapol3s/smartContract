@@ -30,4 +30,5 @@ contract Will {
         _heirs[owner] = address(0);
         _balances[owner] = 0;
     }
+//123
 }
